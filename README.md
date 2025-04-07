@@ -14,6 +14,9 @@
       ACC: jcidea   <br>   PW: workshop2425p2
 4. Free Sound Effects https://pixabay.com/sound-effects/
 5. Free Sound https://mixkit.co/
+6. Theremin https://synth.playtronica.com/theremin/
+7. Rolan 50 Studio https://roland50.studio/
+8. Ableton Playground https://learningsynths.ableton.com/en/playground 
 
 ## Related Links:
 1. iii https://instrumentinventors.org/ 
