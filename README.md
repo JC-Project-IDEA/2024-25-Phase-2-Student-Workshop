@@ -22,6 +22,9 @@
 1. iii https://instrumentinventors.org/ 
 2. Waveforms Visualize https://pudding.cool/2018/02/waveforms/
 
+## Artwork Submission:
+1. Sumbit Artwork (Google Form) https://tinyurl.com/JCIDEA-ex20252
+
 ## Touch Slider
 ```sh
 // libraries
