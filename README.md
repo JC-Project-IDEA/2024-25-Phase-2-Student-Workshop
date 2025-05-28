@@ -147,8 +147,6 @@ void loop() {
   } else if ((currentTouch5 - lastTouch5) >= TouchSensitivity) {
     MP3player.stopTrack();
     MP3player.playTrack(5);
-  } else {
-    
   }
 
   //print out the datas through serial monitor by the channel 115200(begin in the setup)
