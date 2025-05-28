@@ -49,10 +49,15 @@ void setup() {
 
 void loop() {
   slider = analogRead(A0);
-
   Serial.println(slider);
-  int sound = map(slider, 0, 1023, 0, 2000);
-  notePlayer.play(sound);
+
+  if (slider > 0) {
+    int sound = map(slider, 0, 1023, 0, 2000);
+    notePlayer.play(sound);
+  } else {
+    notePlayer.stop();
+  }
+
   delay(100);
 }
 ```
