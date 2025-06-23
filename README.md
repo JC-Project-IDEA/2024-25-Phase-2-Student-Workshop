@@ -180,46 +180,53 @@ void loop() {
 
 
 Tone notePlayer;
+
+//touch value
 int touch = 0;
 
 
 void setup() {
   Serial.begin(115200);
   notePlayer.begin(8);
+
+  //disable timer0 overflow interrupt to avoid conflicts with other operations
+  TIMSK0 &= !(1 << TOIE0);
 }
 
 void loop() {
+  //asign reading to the name we create
   touch = analogRead(A0);
-  // slider2 = analogRead(A1);
+
 
   Serial.println(touch);
 
-  // int sound = map(slider, 0, 1023, 0, 2000);
-  if (touch >=950 && touch <= 1023) {
-    notePlayer.play(261); //C
-  } else if (touch >= 410 && touch <= 560) {
-    notePlayer.play(293); //D
-  } else if (touch >= 300 && touch <= 400) {
-    notePlayer.play(329); //E
-  } else if (touch >= 172 && touch <= 280) {
-    notePlayer.play(350);
-  }else if (touch >= 120 && touch <= 170) {
-    notePlayer.play(392);
-  } else if (touch >= 60 && touch <= 115) {
-    notePlayer.play(440);
+  // compairing the changes by using if else statement, make some changes of the range for every touch!
+  if (touch > 980 && touch <= 1023) {
+    notePlayer.play(261);  //C NOTE_C4
+  } else if (touch > 410 && touch <= 560) {
+    notePlayer.play(293);  //D NOTE_D4
+  } else if (touch > 270 && touch <= 400) {
+    notePlayer.play(329);  //E NOTE_E4
+  } else if (touch > 162 && touch <= 280) {
+    notePlayer.play(350);  //F NOTE_F4
+  } else if (touch > 105 && touch <= 160) {
+    notePlayer.play(392);  //G NOTE_E4
+  } else if (touch > 60 && touch <= 105) {
+    notePlayer.play(440);  //A NOTE_A4
   }
-  
   //  else if (touch >= 350 && touch <= 500) {
   //   notePlayer.play(494);
   // } else if (touch >= 350 && touch <= 500) {
   //   notePlayer.play(523);
-  // } 
+  // }
   else {
     notePlayer.stop();
   }
-  if (touch <= 0) {
-  }
 
+  //print out the datas through serial monitor by the channel 115200(begin in the setup)
+  Serial.print("touch: ");  // display the value of current A0
+  Serial.println(touch);
+  //delay 0.1s , 1000 = 1s
   delay(100);
 }
 ```
