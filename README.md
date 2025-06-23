@@ -172,3 +172,54 @@ void loop() {
   delay(100);
 }
 ```
+## Touch
+```sh
+// libraries
+#include <SPI.h>
+#include <Tone.h>
+
+
+Tone notePlayer;
+int touch = 0;
+
+
+void setup() {
+  Serial.begin(115200);
+  notePlayer.begin(8);
+}
+
+void loop() {
+  touch = analogRead(A0);
+  // slider2 = analogRead(A1);
+
+  Serial.println(touch);
+
+  // int sound = map(slider, 0, 1023, 0, 2000);
+  if (touch >=950 && touch <= 1023) {
+    notePlayer.play(261); //C
+  } else if (touch >= 410 && touch <= 560) {
+    notePlayer.play(293); //D
+  } else if (touch >= 300 && touch <= 400) {
+    notePlayer.play(329); //E
+  } else if (touch >= 172 && touch <= 280) {
+    notePlayer.play(350);
+  }else if (touch >= 120 && touch <= 170) {
+    notePlayer.play(392);
+  } else if (touch >= 60 && touch <= 115) {
+    notePlayer.play(440);
+  }
+  
+  //  else if (touch >= 350 && touch <= 500) {
+  //   notePlayer.play(494);
+  // } else if (touch >= 350 && touch <= 500) {
+  //   notePlayer.play(523);
+  // } 
+  else {
+    notePlayer.stop();
+  }
+  if (touch <= 0) {
+  }
+
+  delay(100);
+}
+```
